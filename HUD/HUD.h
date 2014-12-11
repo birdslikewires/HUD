@@ -1,6 +1,5 @@
 //
 //  HUD.h
-//  BeatGuide
 //
 //  Created by Marin Todorov on 22/04/2012.
 //
@@ -35,11 +34,14 @@
 +(MBProgressHUD*)showUIBlockingIndicatorWithText:(NSString*)str;
 +(MBProgressHUD*)showUIBlockingIndicatorWithText:(NSString*)str withTimeout:(int)seconds;
 
++(MBProgressHUD*)showUIBlockingTextMessage:(NSString*)str withDetailText:(NSString*)detailStr;
+
 +(MBProgressHUD*)showUIBlockingProgressIndicatorWithText:(NSString*)str andProgress:(float)progress;
 
 +(MBProgressHUD*)showAlertWithTitle:(NSString*)titleText text:(NSString*)text;
-+(MBProgressHUD*)showTimedAlertWithTitle:(NSString*)titleText text:(NSString*)text withTimeout:(int)seconds;
 +(MBProgressHUD*)showAlertWithTitle:(NSString*)titleText text:(NSString*)text target:(id)t action:(SEL)sel;
+
++(MBProgressHUD*)showTimedAlertWithTitle:(NSString*)titleText text:(NSString*)text withTimeout:(int)seconds;
 
 +(void)hideUIBlockingIndicator;
 

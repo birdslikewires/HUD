@@ -1,6 +1,5 @@
 //
 //  HUD.m
-//  BeatGuide
 //
 // This code is distributed under the terms and conditions of the MIT license.
 //
@@ -204,6 +203,28 @@ static UIView* lastViewWithHUD = nil;
     hud.removeFromSuperViewOnHide = YES;
     
     return hud;
+}
+
+
++(MBProgressHUD*)showUIBlockingTextMessage:(NSString*)str withDetailText:(NSString*)detailStr
+{
+	[HUD hideUIBlockingIndicator];
+	
+	UIView *targetView = [self rootView];
+	if (targetView == nil) return nil;
+	
+	lastViewWithHUD = targetView;
+	
+	MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:targetView animated:YES];
+
+	hud.mode = MBProgressHUDModeText;
+	hud.labelText = str;
+	hud.detailsLabelText = detailStr;
+	hud.margin = 17.f;
+	hud.removeFromSuperViewOnHide = YES;
+	
+	return hud;
+	
 }
 
 @end
